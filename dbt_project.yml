@@ -9,10 +9,7 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-seeds:
-  # Builds seeds into '<your_schema_name>_raw'
-  brazil_ecommerce:
-    +schema: raw
+
 
 models:
   brazil_ecommerce:

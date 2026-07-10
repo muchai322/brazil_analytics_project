@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: project-24b6423e-147f-4f0b-95c
+    schema: brazil_ecommerce
+
+    tables:
+      - name: customers
+      - name: orders
+      - name: orders_items
