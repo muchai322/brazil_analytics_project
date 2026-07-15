@@ -6,6 +6,6 @@ WITH SOURCE_ORDER_ITEMS AS (
         shipping_limit_date,
         price,
         freight_value
-FROM {{ source('raw', 'orders_items') }}
+FROM {{ source('brazil_ecommerce', 'orders_items') }}
 )
 SELECT * FROM SOURCE_ORDER_ITEMS

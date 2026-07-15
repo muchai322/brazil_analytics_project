@@ -8,7 +8,7 @@ WITH source_data AS(
 
 
 
-FROM  {{ source('raw', 'customers') }}
+FROM  {{ source('brazil_ecommerce', 'customers') }}
 )
 
 SELECT * FROM source_data

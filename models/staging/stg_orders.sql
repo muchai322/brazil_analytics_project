@@ -9,6 +9,6 @@ WITH SOURCE_ORDERS AS (
         order_delivered_carrier_date,
         order_delivered_customer_date,
         order_estimated_delivery_date
-FROM {{ source('raw', 'orders') }}
+FROM {{ source('brazil_ecommerce', 'orders') }}
 )
 SELECT * FROM SOURCE_ORDERS

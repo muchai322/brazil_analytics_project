@@ -1,11 +1,44 @@
 version: 2
 
 sources:
-  - name: raw
+  - name: brazil_ecommerce
     database: project-24b6423e-147f-4f0b-95c
     schema: brazil_ecommerce
 
     tables:
       - name: customers
+        columns:
+          - name: customer_id
+            tests:
+              - not_null
+              - unique
+
       - name: orders
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+              - unique
+
+          - name: customer_id
+            tests:
+              - not_null
+              - relationships:
+                  arguments:
+                    to: source('brazil_ecommerce', 'customers')
+                    field: customer_id
+
       - name: orders_items
+        columns:
+          - name: order_item_id
+            tests:
+              - not_null
+              
+
+          - name: order_id
+            tests:
+              - not_null
+              - relationships:
+                  arguments:
+                    to: source('brazil_ecommerce', 'orders')
+                    field: order_id
