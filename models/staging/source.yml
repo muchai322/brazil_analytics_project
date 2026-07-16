@@ -1,5 +1,9 @@
 version: 2
 
+models:
+  - name: staging
+    description: "This is the staging model for the Brazil E-commerce project."
+
 sources:
   - name: brazil_ecommerce
     database: project-24b6423e-147f-4f0b-95c
@@ -7,35 +11,47 @@ sources:
 
     tables:
       - name: customers
+        description: "This is the source table for customer data."
+
         columns:
           - name: customer_id
+            description: "Primary key for the customers table"
             tests:
               - not_null
               - unique
 
       - name: orders
+        description: "This is the source table for order data."
+
         columns:
           - name: order_id
+            description: "Primary key for the orders table"
             tests:
               - not_null
               - unique
 
           - name: customer_id
+            description: "Foreign key referencing customers"
+
             tests:
-              - not_null
+              - not_null 
               - relationships:
                   arguments:
                     to: source('brazil_ecommerce', 'customers')
                     field: customer_id
-
       - name: orders_items
+        description: "This is the source table for order item data."
+
         columns:
-          - name: order_item_id
+          - name: product_id
+            description: "Product identifier"
+
             tests:
               - not_null
-              
 
           - name: order_id
+            description: "Foreign key referencing the orders table"
+
             tests:
               - not_null
               - relationships:
